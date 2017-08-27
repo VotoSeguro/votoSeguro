@@ -35,11 +35,14 @@
                             <b:inputText size="10" id="nomDepto"  label="#{bundle.lblNomDepto}" value="#{deptoController.depto.nomdepto}" placeholder="#{bundle.lblMantDepto}"/>
                             <b:inputText size="10" id="numCand"  label="#{bundle.lblNumCDepto}" value="#{deptoController.depto.maxcand}" placeholder="5"/>
                             <p:separator></p:separator>
-                            <b:dataTable id="tblDepto" 
+                            <b:dataTable custom-lang-url="//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json" 
+                                         id="tblDepto" 
                                          value="#{deptoController.listaDeptos}"
                                          var="depto"
                                          select="true"
                                          selectionMode="single"
+                                         onselect="ajax:deptoController.onSelect(depto)"
+                                         ondeselect="ajax.deptoController.unSelect()"
                                          >
                                 <b:dataTableColumn label="#{bundle.lblNomDepto}" value="#{depto.nomdepto}"/>
                                 <b:dataTableColumn label="#{bundle.lblNumCDepto}" value="#{depto.maxcand}"/>   

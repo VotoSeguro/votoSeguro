@@ -7,7 +7,7 @@ package com.votoseguro.controller;
 import com.votoseguro.entity.Tbldepartamento;
 import com.votoseguro.facade.DepartamentoFacade;
 import com.votoseguro.util.ValidationBean;
-import java.math.BigDecimal;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -22,7 +22,7 @@ import lombok.Setter;
  */
 @ViewScoped
 @ManagedBean(name = "deptoController")
-public class DeptoController {
+public class DeptoController implements Serializable{
     
     @EJB
     DepartamentoFacade df;
@@ -48,6 +48,17 @@ public class DeptoController {
     
     public void limpiar(){
     depto = new Tbldepartamento();
+    }
+    public void onSelect(Tbldepartamento d){
+    depto.setIddepto(d.getIddepto());
+    depto.setNomdepto(d.getNomdepto());
+    depto.setMaxcand(d.getMaxcand());
+        System.out.println("com.votoseguro.controller.DeptoController.onSelect()");
+    }
+    
+    public void unSelect(){
+    limpiar();
+        System.out.println("com.votoseguro.controller.DeptoController.unSelect()");
     }
     
 }
