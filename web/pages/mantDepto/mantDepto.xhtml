@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>#{bundle['lblMantDepto']}</title>
+    </h:head>
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <ui:composition template="/WEB-INF/templates/template.xhtml">
+           
+            <ui:define name="body">
+                <h:form id="deptoForm">
+                    <b:tabView tabPosition="left" content-style="padding:10px">
+                        <b:tab title="" style="background-color: white;">
+                            <b:row>
+                                <b:column span="2">
+                                    <b:commandButton update="@form" ajax="true"  value="#{bundle['lblbtnAgregar']}" look="info" style="width:100%" actionListener="#{deptoController.insert()}"/>
+                            </b:column>
+                            <b:column span="2">
+                                <b:commandButton update="@form" ajax="true"  value="#{bundle['lblbtnEliminar']}" look="warning" style="width:100%" />
+                            </b:column>
+                            <b:column span="2">
+                                <b:commandButton update="@form" ajax="true"  value="#{bundle['lbltbnLimpiar']}" look="success" style="width:100%" />
+                            </b:column>
+                            </b:row>
+                        </b:tab>
+                    </b:tabView>
+                    <b:tabView tabPosition="left" contentStyle="border: 1px solid #ddd;padding:10px">
+                        <b:tab title="#{bundle.lblMantDepto}" >
+                            <b:messages/>
+                            <b:inputText size="10" id="nomDepto"  label="#{bundle.lblNomDepto}" value="#{deptoController.depto.nomdepto}" placeholder="#{bundle.lblMantDepto}"/>
+                            <b:inputText size="10" id="numCand"  label="#{bundle.lblNumCDepto}" value="#{deptoController.depto.maxcand}" placeholder="5"/>
+                            <p:separator></p:separator>
+                            <b:dataTable id="tblDepto" 
+                                         value="#{deptoController.listaDeptos}"
+                                         var="depto"
+                                         select="true"
+                                         selectionMode="single"
+                                         >
+                                <b:dataTableColumn label="#{bundle.lblNomDepto}" value="#{depto.nomdepto}"/>
+                                <b:dataTableColumn label="#{bundle.lblNumCDepto}" value="#{depto.maxcand}"/>   
+                               
+                            </b:dataTable>
+                        </b:tab>
+                    </b:tabView>
+                    
+                </h:form>  
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

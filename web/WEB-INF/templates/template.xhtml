@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Project Name</title>
+        <meta name="author" content="The Author"></meta>
+    </h:head>
+    <!-- Add 50px padding top to the body for the navbar -->
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <ui:insert name="navbar">
+        <b:navBar brand="Brand" brandHref="#" inverse="true" fixed="top">
+            <b:navbarLinks>
+                <b:navLink value="Link" href="#"></b:navLink>
+                <b:navLink value="Link" href="#"></b:navLink>
+                <b:dropMenu value="Dropdown">
+                    <b:navLink value="Action" href="#"></b:navLink>
+                    <b:navLink value="Another action" href="#"></b:navLink>
+                    <b:navLink value="Something else here" href="#"></b:navLink>
+                    <b:navLink></b:navLink>
+                    <b:navLink header="Nav header"></b:navLink>
+                    <b:navLink value="Separated link" href="#"></b:navLink>
+                    <b:navLink value="One more separated link" href="#"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+            <h:form styleClass="navbar-form navbar-right">
+                <div class="form-group">
+                    <b:inputText placeholder="Email" fieldSize="sm"/>
+                    <!--input type="text" class="form-control" placeholder="Search"/-->
+                </div>
+                <div class="form-group">
+                    <b:inputText placeholder="Password" fieldSize="sm"/>
+                </div> 
+                #{' '}
+                <b:commandButton action="a" value="Sign in" look="success" icon="chevron-right" iconAlign="right"/>
+            </h:form>
+        </b:navBar>
+            </ui:insert>
+        
+   
+        <b:container>
+            <ui:insert name="body">
+                Hello World!
+            </ui:insert>
+        
+        </b:container>
+        <ui:insert name="footer">
+            <footer>
+                <b:navBar brandHref="http://www.thecoder4.eu/" fixed="bottom" style="background-color: black;">
+        <p class="navbar-text pull-right"><h:outputText value="BootsFaces #{versions.bsfVersion} on Mojarra 2.2.12, PrimeFaces 5.3, AngularFaces 2.1.10 and OmniFaces 1.11" /></p>
+        <!-- p class="navbar-text pull-right"><h:outputText value="BootsFaces v1.0.1-OSP on Mojarra 2.2.12, PrimeFaces 5.3, AngularFaces 2.1.10 and OmniFaces 1.11" /></p -->
+    </b:navBar>
+            </footer>
+             </ui:insert>
+    </h:body>
+</html>
+
