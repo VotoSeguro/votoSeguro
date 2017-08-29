@@ -2,58 +2,53 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:b="http://bootsfaces.net/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Project Name</title>
-        <meta name="author" content="The Author"></meta>
+        <title>BootsFaces: the next-gen JSF Framework based on Bootstrap</title>
+        <meta name="author" content="Riccardo Massera" />
+        <meta name="description" content="BootsFaces, a powerful JSF framework that takes the best from Bootstrap and jQuery UI to let develop well-designed state-of-the-art next-gen Front-end Enterprise Applications fast and easy supporting HTML5." />
+        <meta name="KEYWORDS" content="jsf, bootstrap, framework, java, enterprise, server, faces, jquery, usability, next-gen, web, html5, easy, modern, well-designed, website, state-of-the-art" />
+        <meta name="robots" content="index, follow" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="revisit-after" content="7 days" />
+        <meta name="DISTRIBUTION" content="GLOBAL" />
+        <meta http-equiv="PRAGMA" content="NO-CACHE" />
+        <meta name="copyright" content="TheCoder4.eu ( Riccardo Massera ), Stephan Rauh et al." />
+        <style>.tooltip-inner {
+                max-width: 350px;
+                /* If max-width does not work, try using width instead */
+                width: 350px; 
+                #scrollUpCustom {
+                    background-image: url("#{resource['images:top.png']}");
+                    bottom: 65px;
+                    right: 18px;
+                    width: 38px; /* width of the custom image */
+                    height: 38px; /* height of the custom image */
+                    outline: none;
+                }
+            }</style>
     </h:head>
-    <!-- Add 50px padding top to the body for the navbar -->
-    <h:body style="padding-top: 50px; padding-bottom: 20px;">
-        <ui:insert name="navbar">
-        <b:navBar brand="Brand" brandHref="#" inverse="true" fixed="top">
-            <b:navbarLinks>
-                <b:navLink value="Link" href="#"></b:navLink>
-                <b:navLink value="Link" href="#"></b:navLink>
-                <b:dropMenu value="Dropdown">
-                    <b:navLink value="Action" href="#"></b:navLink>
-                    <b:navLink value="Another action" href="#"></b:navLink>
-                    <b:navLink value="Something else here" href="#"></b:navLink>
-                    <b:navLink></b:navLink>
-                    <b:navLink header="Nav header"></b:navLink>
-                    <b:navLink value="Separated link" href="#"></b:navLink>
-                    <b:navLink value="One more separated link" href="#"></b:navLink>
-                </b:dropMenu>
-            </b:navbarLinks>
-            <h:form styleClass="navbar-form navbar-right">
-                <div class="form-group">
-                    <b:inputText placeholder="Email" fieldSize="sm"/>
-                    <!--input type="text" class="form-control" placeholder="Search"/-->
-                </div>
-                <div class="form-group">
-                    <b:inputText placeholder="Password" fieldSize="sm"/>
-                </div> 
-                #{' '}
-                <b:commandButton action="a" value="Sign in" look="success" icon="chevron-right" iconAlign="right"/>
-            </h:form>
-        </b:navBar>
-            </ui:insert>
-        
-   
+    <h:body style="padding-top: 85px;padding-bottom: 85px;"  >
+        <b:scrollUp distance="200" animation="fade" text=""  name="scrollUpCustom" />
+        <!--
+        <h:outputScript library="sh" name="js/shCore.js"         target="head"/>
+        -->        
+        <ui:insert name="nbtop">
+            <ui:include src="/WEB-INF/templates/navbartop.xhtml"/>
+        </ui:insert>
+
         <b:container>
-            <ui:insert name="body">
-                Hello World!
-            </ui:insert>
-        
+            <ui:insert name="content"/>
         </b:container>
-        <ui:insert name="footer">
-            <footer>
-                <b:navBar brandHref="http://www.thecoder4.eu/" fixed="bottom" style="background-color: black;">
-        <p class="navbar-text pull-right"><h:outputText value="BootsFaces #{versions.bsfVersion} on Mojarra 2.2.12, PrimeFaces 5.3, AngularFaces 2.1.10 and OmniFaces 1.11" /></p>
-        <!-- p class="navbar-text pull-right"><h:outputText value="BootsFaces v1.0.1-OSP on Mojarra 2.2.12, PrimeFaces 5.3, AngularFaces 2.1.10 and OmniFaces 1.11" /></p -->
-    </b:navBar>
-            </footer>
-             </ui:insert>
+
+        <ui:insert name="nbtop">
+            <ui:include src="/WEB-INF/templates/navbarbottom.xhtml"/>
+        </ui:insert>
+
     </h:body>
 </html>
 
