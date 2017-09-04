@@ -124,9 +124,13 @@ public class ValidationBean {
     }
 
     public String getMsgBundle(String key) {
-        ResourceBundle bundle = ResourceBundle.getBundle("/Bundle", FacesContext.getCurrentInstance().getViewRoot().getLocale());
+        ResourceBundle bundle = ResourceBundle.getBundle("com.votoseguro.resources.Bundle", FacesContext.getCurrentInstance().getViewRoot().getLocale());
         String value = bundle.getString(key);
         return value;
+    }
+     public void ejecutarJavascript(String codigo){
+        RequestContext requestContext = RequestContext.getCurrentInstance();  
+        requestContext.execute(codigo);
     }
 
   /*  public String Encriptar(String texto) {
