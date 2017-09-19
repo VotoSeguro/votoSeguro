@@ -140,7 +140,9 @@ public class Tbldepartamento implements Serializable {
 
     @Override
     public String toString() {
-        return "com.votoseguro.entity.Tbldepartamento[ iddepto=" + iddepto + " ]";
+        return "Tbldepartamento{" + "iddepto=" + iddepto + ", nomdepto=" + nomdepto + ", maxcand=" + maxcand + ", tblcandidatoList=" + tblcandidatoList + ", tblmunicipioList=" + tblmunicipioList + '}';
     }
+
+    
     
 }
